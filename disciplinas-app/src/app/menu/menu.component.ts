@@ -28,13 +28,4 @@ export class MenuComponent implements AfterViewInit {
     }
   }
 
-  // Função para fechar o menu mobile (sidenav)
-  closeMobileMenu() {
-    const sidenav = document.querySelector('.sidenav');
-    const sidenavInstance = M.Sidenav.getInstance(sidenav!);
-
-    if (sidenavInstance) {
-      sidenavInstance.close();
-    }
-  }
 }

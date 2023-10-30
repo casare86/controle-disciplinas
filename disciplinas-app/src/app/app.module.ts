@@ -12,6 +12,7 @@ import { NotasComponent } from './notas/notas.component';
 import { DisciplinaCadastroComponent } from './disciplina-cadastro/disciplina-cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/modal-cadastro-disciplina.component';
+import { DetalhesDataComponent } from './detalhes-data/detalhes-data.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/mo
     DisciplinasComponent,
     NotasComponent,
     DisciplinaCadastroComponent,
-    ModalCadastroDisciplinaComponent
+    ModalCadastroDisciplinaComponent,
+    DetalhesDataComponent,
   ],
   imports: [
     BrowserModule,

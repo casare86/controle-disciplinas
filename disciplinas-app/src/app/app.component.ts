@@ -14,7 +14,6 @@ export class AppComponent implements AfterViewInit{
   
   abrirModalDeSucesso(disciplina: Disciplina) {
     this.disciplinaCadastrada = disciplina;
-    // Lógica para abrir o modal de sucesso aqui
   }
 
   ngAfterViewInit(): void {
