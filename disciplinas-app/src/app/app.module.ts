@@ -10,7 +10,9 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { DisciplinasComponent } from './disciplinas/disciplinas.component';
 import { NotasComponent } from './notas/notas.component';
 import { DisciplinaCadastroComponent } from './disciplina-cadastro/disciplina-cadastro.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/modal-cadastro-disciplina.component';
+import { DetalhesDataComponent } from './detalhes-data/detalhes-data.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CalendarioComponent,
     DisciplinasComponent,
     NotasComponent,
-    DisciplinaCadastroComponent
+    DisciplinaCadastroComponent,
+    ModalCadastroDisciplinaComponent,
+    DetalhesDataComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
