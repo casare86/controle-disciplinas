@@ -13,6 +13,8 @@ import { DisciplinaCadastroComponent } from './disciplina-cadastro/disciplina-ca
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/modal-cadastro-disciplina.component';
 import { DetalhesDataComponent } from './detalhes-data/detalhes-data.component';
+import { DisciplinasListaComponent } from './disciplinas-lista/disciplinas-lista.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { DetalhesDataComponent } from './detalhes-data/detalhes-data.component';
     DisciplinaCadastroComponent,
     ModalCadastroDisciplinaComponent,
     DetalhesDataComponent,
+    DisciplinasListaComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
