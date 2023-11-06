@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Disciplina } from '../models/disciplina.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disciplina-cadastro',
@@ -14,10 +15,10 @@ export class DisciplinaCadastroComponent implements OnInit{
   disciplinaForm: FormGroup ;
   @Output() disciplinaCadastrada!: Disciplina;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.disciplinaForm = this.fb.group({
-      codigo: ['', Validators.required],
-      nome: ['', Validators.required],
+      codigo: [''],
+      nome: [''],
       dataInicio: [''],
       dataFim: ['']
     });
@@ -31,13 +32,19 @@ export class DisciplinaCadastroComponent implements OnInit{
       dataInicio: [''],
       dataFim: ['']
     });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems);
+    });
   }
 
   onSubmit() {
     if (this.disciplinaForm.valid) {
       const disciplina = this.disciplinaForm.value as Disciplina;
       this.disciplinaCadastrada = disciplina;
-      // criar um registro no JSON files para armazenamento.
+     
+      
+        // criar um registro no JSON files para armazenamento.
       console.log("Cadastrada: " + this.disciplinaCadastrada);
 
       const modal = document.getElementById('cadastroSucessoModal');
@@ -46,5 +53,10 @@ export class DisciplinaCadastroComponent implements OnInit{
       M.Modal.init(modal!);
       const instance = M.Modal.getInstance(modal!).open();
     }
+  }
+
+  cancel() {
+    this.disciplinaForm.reset();
+    this.router.navigate(['/disciplinas']);
   }
 }
