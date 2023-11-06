@@ -1,13 +1,18 @@
 <div class="login-container">
+ 
     <h2>Login</h2>
+    <p> Usuário válido:  Usuario = fernando , senha= 123</p>
     <form (ngSubmit)="login()">
       <div class="input-field">
         <input type="text" id="username" [(ngModel)]="username" name="username" required>
-        <label for="username">Login</label>
+        <label for="username">Usuário</label>
       </div>
       <div class="input-field">
         <input type="password" id="password" [(ngModel)]="password" name="password" required>
         <label for="password">Senha</label>
+      </div>
+      <div class="row">
+        <p class="materialize-red-text"> {{loginErrorMessage}} </p>
       </div>
       <button type="submit" class="btn waves-effect waves-light">Entrar</button>
       <button type="button" class="btn waves-effect waves-light red darken-3" (click)="cancel()">Cancelar</button>

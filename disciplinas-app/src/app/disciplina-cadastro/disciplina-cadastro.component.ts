@@ -17,8 +17,8 @@ export class DisciplinaCadastroComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.disciplinaForm = this.fb.group({
-      codigo: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      nome: ['', [Validators.required, Validators.pattern(/^[A-Za-z]{3,}$/)]],
+      codigo: [''],
+      nome: [''],
       dataInicio: [''],
       dataFim: ['']
     });
@@ -42,9 +42,7 @@ export class DisciplinaCadastroComponent implements OnInit{
     if (this.disciplinaForm.valid) {
       const disciplina = this.disciplinaForm.value as Disciplina;
       this.disciplinaCadastrada = disciplina;
-      const disciplinaValida = validaDisciplina(disciplina);
-      if(!disciplinaValida)
-        return;
+     
       
         // criar um registro no JSON files para armazenamento.
       console.log("Cadastrada: " + this.disciplinaCadastrada);
@@ -62,19 +60,3 @@ export class DisciplinaCadastroComponent implements OnInit{
     this.router.navigate(['/disciplinas']);
   }
 }
-function validaDisciplina(disciplina: Disciplina) {
-  console.log("Validacao",  disciplina.codigo < 0 && disciplina.nome.length < 3)
-  //separar as validações para código e para nome
-  let nomeInvalido = disciplina.nome.length < 3;
-  let codigoInvalido = disciplina.codigo < 0;
-
-  let mensagem = "";
-  if(disciplina.nome.length < 3)
-    mensagem += "Nome deve ter pelo menos 3 letras."
-  if(disciplina.codigo < 0)
-    mensagem += "Código não pode ser negativo";
-  
-  let invalida = disciplina.codigo > 0 && disciplina.nome.length > 3;
-  return invalida ;
-}
-
