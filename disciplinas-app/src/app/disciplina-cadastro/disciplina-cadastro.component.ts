@@ -17,7 +17,7 @@ export class DisciplinaCadastroComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.disciplinaForm = this.fb.group({
-      codigo: [''],
+      id: [''],
       nome: [''],
       dataInicio: [''],
       dataFim: ['']
@@ -27,7 +27,7 @@ export class DisciplinaCadastroComponent implements OnInit{
 
   ngOnInit() {
     this.disciplinaForm = this.fb.group({
-      codigo: ['', Validators.required],
+      id: ['', Validators.required],
       nome: ['', Validators.required],
       dataInicio: [''],
       dataFim: ['']
@@ -42,16 +42,25 @@ export class DisciplinaCadastroComponent implements OnInit{
     if (this.disciplinaForm.valid) {
       const disciplina = this.disciplinaForm.value as Disciplina;
       this.disciplinaCadastrada = disciplina;
-     
-      
-        // criar um registro no JSON files para armazenamento.
-      console.log("Cadastrada: " + this.disciplinaCadastrada);
 
-      const modal = document.getElementById('cadastroSucessoModal');
-    
-      console.log(modal);
-      M.Modal.init(modal!);
-      const instance = M.Modal.getInstance(modal!).open();
+      fetch('http://localhost:3000/disciplinas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(disciplina),
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.disciplinaCadastrada = data;
+          const modal = document.getElementById('cadastroSucessoModal');
+          M.Modal.init(modal!);
+          const instance = M.Modal.getInstance(modal!).open();
+          console.log('Cadastro realizado com sucesso:', data);
+        })
+        .catch(error => {
+          console.error('Erro ao cadastrar disciplina:', error);
+        });
     }
   }
 

@@ -1,0 +1,4 @@
+{
+    "/disciplinas/": "/disciplinas",
+    "/disciplinas/:id": "/disciplinas/:id"
+}
