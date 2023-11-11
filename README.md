@@ -9,6 +9,9 @@ Registrar as disciplinas em curso;
 Finalizar disciplinas;
 Agendar os horários e atividades referentes a disciplina.
 
+<b> Usuário para autenticação </b></br>
+login: fernando </br>
+senha: 123 </br?
 
 Checklist:
 [] Criar um repositório no GitHub com a estrutura do Gitflow, incluindo pelo menos as branches principais "main" e "develop."
