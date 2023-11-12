@@ -1,10 +1,16 @@
-<ul class="collapsible" data-collapsible="accordion" *ngIf="!exibirMensagem">
+<div *ngIf="!zeroDisciplinas">
+  <ul class="collapsible" data-collapsible="accordion" >
     <li *ngFor="let disciplina of disciplinas">
-      <div class="collapsible-header">{{ disciplina.titulo }}</div>
+      <div class="collapsible-header">{{ disciplina.nome }}</div>
       <div class="collapsible-body">
-        <p>{{ disciplina.conteudo }}</p>
+        <p>Código: {{ disciplina.id }}</p>
+        <p>Início: {{ disciplina.dataInicio }}</p>
+        <p>Término: {{ disciplina.dataFim }}</p>
       </div>
     </li>
   </ul>
-  
-  <p *ngIf="exibirMensagem">Nenhuma disciplina cadastrada.</p>
+ 
+</div>
+<div *ngIf="!zeroDisciplinas">
+  <p class="text-red">{{mensagemErro}}</p>
+</div>

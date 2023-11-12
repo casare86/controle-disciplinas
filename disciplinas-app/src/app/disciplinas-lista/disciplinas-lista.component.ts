@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-disciplinas-lista',
@@ -6,21 +6,36 @@ import { AfterViewInit, Component } from '@angular/core';
   styleUrls: ['./disciplinas-lista.component.less']
 })
 
-export class DisciplinasListaComponent implements AfterViewInit {
-  disciplinas = [
-    { titulo: 'Disciplina 1', conteudo: 'Conteúdo da Disciplina 1' },
-    { titulo: 'Disciplina 2', conteudo: 'Conteúdo da Disciplina 2' },
-  ];
+export class DisciplinasListaComponent implements AfterViewInit, OnInit {
+  zeroDisciplinas = false;
+  disciplinas: any[] = [];
+  mensagemErro = "";
+
+  ngOnInit() {
+    this.carregarDisciplinas();
+  }
+
+  carregarDisciplinas() {
+    console.log("fetfch")
+    fetch('http://localhost:3000/disciplinas')
+      .then(response => response.json())
+      .then(data => {
+        this.disciplinas = data;
+        this.zeroDisciplinas = data.length == 0;
+        this.verificarListaVazia();
+      })
+      .catch(error => {
+        console.error('Erro ao carregar disciplinas:', error);
+        this.mensagemErro = 'Erro ao carregar disciplinas. Tente novamente mais tarde. verifique se o json-server está rodando';
+      });
+  }
 
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.collapsible');
     M.Collapsible.init(elems);
   }
 
-  exibirMensagem = false;
-
-  // Verifica se a lista de disciplinas está vazia
   verificarListaVazia() {
-    this.exibirMensagem = this.disciplinas.length === 0;
+    this.zeroDisciplinas = this.disciplinas.length === 0;
   }
 }
