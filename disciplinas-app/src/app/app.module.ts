@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { DisciplinasComponent } from './disciplinas/disciplinas.component';
-import { NotasComponent } from './notas/notas.component';
 import { DisciplinaCadastroComponent } from './disciplina-cadastro/disciplina-cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/modal-cadastro-disciplina.component';
@@ -24,7 +23,6 @@ import { LoginComponent } from './login/login.component';
     MenuComponent,
     CalendarioComponent,
     DisciplinasComponent,
-    NotasComponent,
     DisciplinaCadastroComponent,
     ModalCadastroDisciplinaComponent,
     DetalhesDataComponent,

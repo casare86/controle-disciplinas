@@ -1,4 +1,4 @@
-<div *ngIf="!zeroDisciplinas">
+<div *ngIf="!mensagemErro">
   <ul class="collapsible" data-collapsible="accordion" >
     <li *ngFor="let disciplina of disciplinas">
       <div class="collapsible-header">{{ disciplina.nome }}</div>
@@ -9,8 +9,7 @@
       </div>
     </li>
   </ul>
- 
 </div>
-<div *ngIf="!zeroDisciplinas">
-  <p class="text-red">{{mensagemErro}}</p>
+<div *ngIf="mensagemErro">
+  <p>{{mensagemErro}}</p>
 </div>
