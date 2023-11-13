@@ -1,41 +1,43 @@
-<div class="row">
-    <form class="col s12" [formGroup]="disciplinaForm" (ngSubmit)="onSubmit()" #formDisiciplia="ngForm">
+<div class="container">
+  <div class="row">
+      <form class="col s12" [formGroup]="disciplinaForm" (ngSubmit)="onSubmit()" #formDisiciplia="ngForm">
 
-    <div class="row">
-      <div class="input-field col s12 l6 ">
-        <input id="id" type="number" class="validate" formControlName="id" required pattern="^([0-9]+)">
-        <label for="id">Código*</label>
-        <span class="helper-text" data-error="O código da disciplina é obrigatório."></span>
-        <div class="helper-text materialize-red-text" *ngIf="disciplinaForm.get('id')?.hasError('pattern')">
-          O código deve ser um número positivo.
+      <div class="row">
+        <div class="input-field col s12 l6 ">
+          <input id="id" type="number" class="validate" formControlName="id" required pattern="^([0-9]+)">
+          <label for="id">Código*</label>
+          <span class="helper-text" data-error="O código da disciplina é obrigatório."></span>
+          <div class="helper-text materialize-red-text" *ngIf="disciplinaForm.get('id')?.hasError('pattern')">
+            O código deve ser um número positivo.
+          </div>
+        </div>
+        <div class="input-field col s12 l6">
+          <input id="nome" type="text" class="validate" formControlName="nome" required pattern="^[A-Za-z0-9 ]{3,}$">
+          <label for="nome">Nome Disciplina*</label>
+          <span class="helper-text" data-error="Preencha o nome da disciplina."></span>
+          <div class="helper-text materialize-red-text" *ngIf="disciplinaForm.get('nome')?.hasError('pattern')">
+            Nome deve ter pelo menos 3 caractéres.
+          </div>
         </div>
       </div>
-      <div class="input-field col s12 l6">
-        <input id="nome" type="text" class="validate" formControlName="nome" required pattern="^[A-Za-z0-9 ]{3,}$">
-        <label for="nome">Nome Disciplina*</label>
-        <span class="helper-text" data-error="Preencha o nome da disciplina."></span>
-        <div class="helper-text materialize-red-text" *ngIf="disciplinaForm.get('nome')?.hasError('pattern')">
-          Nome deve ter pelo menos 3 caractéres.
+
+      <div class="row">
+        <div class="input-field col s12 l6 ">
+          <label for="dataInicio">Data de Início:</label>
+          <input type="text" class="datepicker" id="dataInicio" formControlName="dataInicio">
+        </div>
+        <div class="input-field col s12 l6">
+          <label for="dataFim">Data de Término:</label>
+          <input type="text" class="datepicker" id="dataFim" formControlName="dataFim">
         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12 l6 ">
-        <label for="dataInicio">Data de Início:</label>
-        <input type="text" class="datepicker" id="dataInicio" formControlName="dataInicio">
-      </div>
-      <div class="input-field col s12 l6">
-        <label for="dataFim">Data de Término:</label>
-        <input type="text" class="datepicker" id="dataFim" formControlName="dataFim">
-      </div>
-    </div>
-    <button class="btn waves-effect waves-light" type="submit" [disabled]="!disciplinaForm.valid">
-      Adicionar Disciplina
-      <i class="material-icons left">add</i>
-    </button>
-    <button type="button" class="btn waves-effect waves-light red darken-3" (click)="cancel()">Cancelar</button>
-  </form>
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!disciplinaForm.valid">
+        Adicionar Disciplina
+        <i class="material-icons left">add</i>
+      </button>
+      <button type="button" class="btn waves-effect waves-light red darken-3" (click)="cancel()">Cancelar</button>
+    </form>
+  </div>
 </div>
 <app-modal-cadastro-disciplina  [receptor]="disciplinaCadastrada" ></app-modal-cadastro-disciplina>
   
