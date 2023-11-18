@@ -31,7 +31,6 @@ export class CalendarioComponent implements OnInit {
       },
       onSelect: (data: any) => {
         const dataFormatada = moment(data).format('YYYY-MM-DD');
-        console.log("Selecionou = ", dataFormatada);
         this.router.navigate(['detalhes', dataFormatada]);
       }
     };

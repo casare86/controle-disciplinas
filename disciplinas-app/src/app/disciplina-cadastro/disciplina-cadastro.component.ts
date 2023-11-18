@@ -22,7 +22,7 @@ export class DisciplinaCadastroComponent implements OnInit{
       dataInicio: [''],
       dataFim: ['']
     });
-    this.disciplinaCadastrada = new Disciplina(0, "");
+    this.disciplinaCadastrada = new Disciplina(0, "", "", "");
   }
 
   ngOnInit() {

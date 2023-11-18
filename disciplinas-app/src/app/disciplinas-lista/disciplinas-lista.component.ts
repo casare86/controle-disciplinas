@@ -29,7 +29,6 @@ export class DisciplinasListaComponent implements AfterViewInit, OnInit {
         const data = await response.json();
         this.disciplinas = data;
         this.zeroDisciplinas = data.length === 0;
-        console.log("Disciplinas = " + this.zeroDisciplinas);
         resolve();
       } catch (error) {
         console.error('Erro ao carregar disciplinas:', error);
@@ -37,6 +36,18 @@ export class DisciplinasListaComponent implements AfterViewInit, OnInit {
         reject();
       }
     });
+  }
+
+  editarDisciplina(disciplina: any) {
+    // Lógica para editar a disciplina
+    console.log('Editar disciplina:', disciplina);
+    // Aqui você pode abrir um modal ou navegar para outra página de edição
+  }
+
+  excluirDisciplina(disciplina: any) {
+    // Lógica para excluir a disciplina
+    console.log('Excluir disciplina:', disciplina);
+    // Aqui você pode abrir um modal de confirmação antes de excluir
   }
   
   ngAfterViewInit() {
