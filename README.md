@@ -28,10 +28,13 @@ Checklist:
 - [x]Implementar máscaras em campos de formulário, quando necessário, para melhorar a experiência do usuário ao inserir dados. (não tem máscaras)
 - [x]Desabilitar o botão de envio (submit) enquanto o formulário estiver em um estado inválido. (Cadastrar Disciplina)
 - [x]Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.  (Cadastrar disciplina)
-- []Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.
-- [x]Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server. (Atualmente tem apenas leitura e criação, falta edição e exclusão)
+- [X]Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.
+- [x]Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server. 
 - [x]Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
 - [x]Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo. (página inicial -> lista de disciplinas)
 - [x]Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas. (acordeon de disciplina)
 - [x]Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo. (texto interno dos acordeões Titulo para uppercase e data para dd/mm/aaaa)
-- [x]Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online. (feito na página: )
+- [x]Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
+
+
+OBS: alguns inputs de data (data inicio e data fim) ficaram sem a aplicação da máscara, pois causavam erro ao trazer o dado carregado, e não consegui fazer com que funcionassem da mandeira adequada, ficando apenas a parte do pipe na exibição das datas na exibição das datas cadastradas.
