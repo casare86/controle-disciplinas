@@ -32,8 +32,7 @@ Checklist:
 - [x]Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo. (página inicial -> lista de disciplinas)
 - [x]Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas. (acordeon de disciplina)
 - [x]Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo. (texto interno dos acordeões Titulo para uppercase e data para dd/mm/aaaa)
-- [x]Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online. (feito na página: )
-- [x]Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
+- [x]Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online. (feito na página: https://655a77d593efb17a41fda4f4--strong-dasik-6d3181.netlify.app/login )
 
 
 OBS: alguns inputs de data (data inicio e data fim) ficaram sem a aplicação da máscara, pois causavam erro ao trazer o dado carregado, e não consegui fazer com que funcionassem da mandeira adequada, ficando apenas a parte do pipe na exibição das datas na exibição das datas cadastradas.
