@@ -1,15 +1,41 @@
 <div *ngIf="!mensagemErro">
-  <ul class="collapsible" data-collapsible="accordion" >
+  <ul class="collapsible" data-collapsible="accordion">
     <li *ngFor="let disciplina of disciplinas">
-      <div class="collapsible-header">{{ disciplina.nome }}</div>
+      <div class="collapsible-header">{{ disciplina.nome | uppercase}}</div>
       <div class="collapsible-body">
         <p>Código: {{ disciplina.id }}</p>
-        <p>Início: {{ disciplina.dataInicio }}</p>
-        <p>Término: {{ disciplina.dataFim }}</p>
+        <p>Início: {{ disciplina.dataInicio | date: "dd/MM/yyyy" }}</p>
+        <p>Término: {{ disciplina.dataFim | date: "dd/MM/yyyy" }}</p>
+        <button (click)="abrirModal(disciplina)" class="btn">Editar</button>
+        <button (click)="excluirDisciplina(disciplina.id)" class="btn red">Excluir</button>
       </div>
     </li>
   </ul>
 </div>
 <div *ngIf="mensagemErro">
-  <p>{{mensagemErro}}</p>
+  <p>{{ mensagemErro }}</p>
+</div>
+
+<div id="editModal" class="modal">
+  <form #editForm="ngForm" (ngSubmit)="salvarEdicao()">
+    <div class="modal-content">
+      <h4>Editar Disciplina</h4>
+      <div class="input-field">
+        <input id="editNome" type="text" class="validate" name="nome" [(ngModel)]="disciplinaEditada.nome">
+        <label for="editNome" class="active">Nome</label>
+      </div>
+      <div class="input-field">
+        <input id="editDataInicio" type="text" name="dataInicio" [(ngModel)]="disciplinaEditada.dataInicio">
+        <label for="editDataInicio" class="active">Data de Início</label>
+      </div>
+      <div class="input-field">
+        <input id="editDataFim" type="text" name="dataFim" [(ngModel)]="disciplinaEditada.dataFim">
+        <label for="editDataFim" class="active">Data de Término</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="waves-effect waves-light btn">Salvar</button>
+      <button (click)="fecharModal()" class="btn waves-effect waves-light red darken-3">Cancelar</button>
+    </div>
+  </form>
 </div>

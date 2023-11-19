@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +14,8 @@ import { ModalCadastroDisciplinaComponent } from './modal-cadastro-disciplina/mo
 import { DetalhesDataComponent } from './detalhes-data/detalhes-data.component';
 import { DisciplinasListaComponent } from './disciplinas-lista/disciplinas-lista.component';
 import { LoginComponent } from './login/login.component';
+import { EditDisciplinaModalComponent } from './edit-disciplina-modal/edit-disciplina-modal.component';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,17 @@ import { LoginComponent } from './login/login.component';
     DetalhesDataComponent,
     DisciplinasListaComponent,
     LoginComponent,
+    EditDisciplinaModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxMaskDirective
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
