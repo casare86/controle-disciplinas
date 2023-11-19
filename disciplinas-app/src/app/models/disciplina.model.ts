@@ -1,13 +1,13 @@
 export class Disciplina {
     id: number ;
     nome: string;
-    dataInicio?: string;
-    dataFim?: string;
+    dataInicio?: Date;
+    dataFim?: Date;
    
     constructor(id: number, nome: string, dataInicio: string, dataFim: string) {
         this.id = id;
         this.nome = nome;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.dataInicio = new Date(dataInicio);
+        this.dataFim = new Date(dataFim);
     }
 }

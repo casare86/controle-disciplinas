@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { DisciplinaService } from '../disciplina.service';
 
 @Component({
   selector: 'app-disciplinas-lista',
@@ -7,9 +8,13 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 
 export class DisciplinasListaComponent implements AfterViewInit, OnInit {
+
+  constructor(private disciplinaService: DisciplinaService) { }
+
   zeroDisciplinas = false;
   disciplinas: any[] = [];
   mensagemErro = "";
+  disciplinaEditada: any = {};
 
   ngOnInit() {
     this.carregarDisciplinas();
@@ -38,17 +43,65 @@ export class DisciplinasListaComponent implements AfterViewInit, OnInit {
     });
   }
 
-  editarDisciplina(disciplina: any) {
-    // Lógica para editar a disciplina
-    console.log('Editar disciplina:', disciplina);
-    // Aqui você pode abrir um modal ou navegar para outra página de edição
+
+  async adicionarDisciplina(novaDisciplina: any) {
+    try {
+      await this.disciplinaService.addDisciplina(novaDisciplina).toPromise();
+      this.carregarDisciplinas();
+    } catch (error) {
+      console.error('Erro ao adicionar disciplina:', error);
+      // Lógica para exibir mensagem de erro ao usuário
+    }
   }
 
-  excluirDisciplina(disciplina: any) {
-    // Lógica para excluir a disciplina
-    console.log('Excluir disciplina:', disciplina);
-    // Aqui você pode abrir um modal de confirmação antes de excluir
+  async editarDisciplina(disciplina: any) {
+    try {
+      await this.disciplinaService.editarDisciplina(disciplina).toPromise();
+      this.carregarDisciplinas();
+    } catch (error) {
+      console.error('Erro ao editar disciplina:', error);
+      // Lógica para exibir mensagem de erro ao usuário
+    }
   }
+
+  async excluirDisciplina(id: number) {
+    try {
+      await this.disciplinaService.excluirDisciplina(id).toPromise();
+      this.carregarDisciplinas();
+    } catch (error) {
+      console.error('Erro ao excluir disciplina:', error);
+    }
+  }
+
+  carregarDisciplinaParaEdicao(disciplina: any) {
+    this.disciplinaEditada = { ...disciplina }; // Copia os dados da disciplina para o objeto de edição
+  }
+
+  salvarEdicao() {
+    this.disciplinaService.editarDisciplina(this.disciplinaEditada).subscribe(
+      () => {
+        this.carregarDisciplinas(); 
+      },
+      error => {
+        console.error('Erro ao editar disciplina:', error);
+      }
+    );
+    this.fecharModal();
+  }
+
+  abrirModal(disciplina: any) {
+    this.disciplinaEditada = { ...disciplina };
+    const modal = document.querySelector('#editModal');
+    M.Modal.init(modal!);
+    const instance = M.Modal.getInstance(modal!).open();
+         
+  }
+
+  fecharModal() {
+    const modal = document.querySelector('#editModal');
+    const instance = M.Modal.getInstance(modal!).close();
+  }
+
   
   ngAfterViewInit() {
     const elems = document.querySelectorAll('.collapsible');
