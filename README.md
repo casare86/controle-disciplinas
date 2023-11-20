@@ -6,6 +6,9 @@ Será uma agenda para cadastrar e controlar as disciplinas em andamento e já co
 Registrar as disciplinas em curso;
 Finalizar disciplinas;
 Agendar os horários e atividades referentes a disciplina.
+
+<br>
+Link figma: https://www.figma.com/file/QOFTQMnxJxVNHlKhBwu6ap/Home?type=design&node-id=2%3A17&mode=design&t=8w8Bt2TbnNmGKXli-1
 <b> Usuário para autenticação </b></br>
 login: fernando </br>
 senha: 123 </br>
