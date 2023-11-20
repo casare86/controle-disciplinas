@@ -9,6 +9,7 @@ Agendar os horários e atividades referentes a disciplina.
 
 <br>
 Link figma: https://www.figma.com/file/QOFTQMnxJxVNHlKhBwu6ap/Home?type=design&node-id=2%3A17&mode=design&t=8w8Bt2TbnNmGKXli-1
+</br>
 <b> Usuário para autenticação </b></br>
 login: fernando </br>
 senha: 123 </br>
