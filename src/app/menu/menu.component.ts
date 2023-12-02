@@ -1,4 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+
 import 'materialize-css';
 
 @Component({
@@ -8,7 +10,7 @@ import 'materialize-css';
 })
 export class MenuComponent implements AfterViewInit {
 
-  constructor() {}
+  constructor(public authService: AuthService ) {}
 
   ngAfterViewInit() {
     const elem = document.querySelector('.sidenav');
@@ -18,7 +20,6 @@ export class MenuComponent implements AfterViewInit {
     }
   }
 
-  // Função para abrir e fechar o menu mobile (sidenav)
   toggleMobileMenu() {
     const sidenav = document.querySelector('.sidenav');
     const sidenavInstance = M.Sidenav.getInstance(sidenav!);

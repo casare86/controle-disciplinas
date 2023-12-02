@@ -9,8 +9,8 @@
     "test": "ng test",
     "json:server": "json-server --watch db.json",
     "json:server:routes": "json-server --watch db.json --routes routes.json",
-    "build:server": "ng build && json-server --watch db.json --routes routes.json",
-    "start:server": "ng serve && json-server --watch db.json --routes routes.json"
+    "build:server": "ng build & json-server --watch db.json --routes routes.json",
+    "start:server": "json-server db.json --routes routes.json && ng serve"
   },
   "private": true,
   "dependencies": {

@@ -34,11 +34,9 @@ export class EditDisciplinaModalComponent implements AfterViewInit {
       const disciplinaData = this.disciplinaForm.value;
       this.disciplinaService.editarDisciplina(disciplinaData).subscribe(
         (response) => {
-          // Lógica para tratar a resposta do servidor após a atualização
           console.log('Disciplina atualizada com sucesso:', response);
         },
         (error) => {
-          // Tratar erros, exibir mensagem de erro, etc.
           console.error('Erro ao atualizar disciplina:', error);
         }
       );

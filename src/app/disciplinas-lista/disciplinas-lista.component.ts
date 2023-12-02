@@ -50,7 +50,6 @@ export class DisciplinasListaComponent implements AfterViewInit, OnInit {
       this.carregarDisciplinas();
     } catch (error) {
       console.error('Erro ao adicionar disciplina:', error);
-      // Lógica para exibir mensagem de erro ao usuário
     }
   }
 
@@ -60,7 +59,6 @@ export class DisciplinasListaComponent implements AfterViewInit, OnInit {
       this.carregarDisciplinas();
     } catch (error) {
       console.error('Erro ao editar disciplina:', error);
-      // Lógica para exibir mensagem de erro ao usuário
     }
   }
 
